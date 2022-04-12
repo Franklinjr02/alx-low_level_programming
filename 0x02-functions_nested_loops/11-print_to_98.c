@@ -23,6 +23,3 @@ while (n > 98)
 printf("98");
 putchar('\n');
 }
-
-
-100-times_table.c
