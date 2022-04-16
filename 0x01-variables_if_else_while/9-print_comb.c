@@ -7,12 +7,17 @@
 int main(void)
 {
 int numb;
-char alphab;
 
-for (numb = 48 ; numb <= 57 ; numb++)
+for (numb = '0' ; numb <= '9' ; numb++)
+{
 putchar(numb);
-for (alphab = 97 ; alphab <= 102 ; alphab++)
-putchar(alphab);
+
+if (numb != '9')
+{
+putchar(',');
+putchar(' ');
+}
+}
 putchar('\n');
 return (0);
 }
