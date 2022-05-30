@@ -1,47 +1,29 @@
 #include "holberton.h"
 
 /**
- * _strlen - lenght of string
- * @s:char
- * Return:int
- */
-int _strlen(const char *s)
-{
-	int i;
-
-		for (i = 0; s[i] != '\0'; i++)
-		{
-			continue;
-		}
-return (i);
-}
-/**
- * binary_to_uint - convert binary to unsigned int
- * @b:string from 0 and 1 else NULL
+ * binary_to_uint - converts a binary number to an unsigned int.
+ * @b: pointer to a string containing a binary number
  *
- * Return:unsigned int
+ * Return: unsigned int with decimal value of binsry number, or 0 if error
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int k = 1;
-	unsigned int i = 0;
-	int c;
-	unsigned int len;
+	int i;
+	unsigned int num;
 
-	if (b == NULL)
+	num = 0;
+	if (!b)
 		return (0);
-
-	len = _strlen(b);
-
-	for (c = len - 1; c >= 0; c--)
+	for (i = 0; b[i] != '\0'; i++)
 	{
-	if (b[c] != '0' && b[c] != '1')
-		return (0);
-	if (b[c] == '1')
-	{
-		i += k;
+		if (b[i] != '0' && b[i] != '1')
+			return (0);
 	}
-	k *= 2;
-}
-	return (i);
+	for (i = 0; b[i] != '\0'; i++)
+	{
+		num <<= 1;
+		if (b[i] == '1')
+			num += 1;
+	}
+	return (num);
 }
