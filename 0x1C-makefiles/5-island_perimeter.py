@@ -1,22 +1,23 @@
 #!/usr/bin/python3
-"""5-island_perimeter module"""
+""" This module finds the parameter
+    of an island, 0's are wather 1's
+    are land. Find how many 0's are
+    touched by the 1's """
 
 
 def island_perimeter(grid):
-    """Returns the perimeter of the island described in grid"""
-    c = 0
-    length = len(grid) - 1
-    width = len(grid[0]) - 1
+    """ Finds the perimeter of an island i'm hunggry """
 
-    for i, r in enumerate(grid):
-        for j, n in enumerate(r):
-            if n == 1:
-                if i == 0 or grid[i - 1][j] != 1:
-                    c += 1
-                if j == 0 or grid[i][j - 1] != 1:
-                    c += 1
-                if j == width or grid[i][j + 1] != 1:
-                    c += 1
-                if i == length or grid[i + 1][j] != 1:
-                    c += 1
-    return c
+    count = 0
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            if grid[i][j] == 1:  # let's check when it finds a 1
+                if i == 0 or grid[i - 1][j] == 0:  # check top
+                    count += 1
+                if i == len(grid) - 1 or grid[i + 1][j] == 0:  # check down
+                    count += 1
+                if j == 0 or grid[i][j - 1] == 0:  # check left
+                    count += 1
+                if j == len(grid[i]) - 1 or grid[i][j + 1] == 0:  # check right
+                    count += 1
+    return(count)
